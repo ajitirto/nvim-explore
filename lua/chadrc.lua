@@ -3,13 +3,9 @@ local M = {}
 
 M.base46 = {
 	theme = "tokyonight",
+  transparency = true,
 }
 
-M.defaults = {
-  options = {
-    relativenumber = true, 
-    number = true,        
-  },
-}
+
 
 return M
