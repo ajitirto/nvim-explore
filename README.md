@@ -5,5 +5,5 @@
 - General stuff
 - LSP
 - code formatter : golang, php, javascript, typescript, erlang elixir,
-- snipper
-- module and refactor code nvim 
+- snippet
+- module and refactor code nvim
