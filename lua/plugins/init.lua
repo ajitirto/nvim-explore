@@ -1,3 +1,4 @@
+
 return {
 
   -- import form user  
@@ -16,6 +17,13 @@ return {
     config = function()
       require "configs.lspconfig"
     end,
-  }, 
+  },
 
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("configs.hlchunk")
+    end
+  },
 }
