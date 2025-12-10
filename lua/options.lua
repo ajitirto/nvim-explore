@@ -10,16 +10,16 @@ opt.number = true
 opt.mouse = "a"
 -- opt.undofile = true
 -- opt.undodir = os.getenv("HOME") .. "/.config/nvim/lua/undodir"
-opt.backup = false
-opt.swapfile = false
-opt.hlsearch = true
+-- opt.backup = false
+-- opt.swapfile = false
+-- opt.hlsearch = true
 
 -- Search behavior
-opt.ignorecase = true
-opt.smartcase = true
+-- opt.ignorecase = true
+-- opt.smartcase = true
 
 -- Clipboard
-opt.clipboard:append("unnamedplus")
+-- opt.clipboard:append("unnamedplus")
 
 -- User Interface
 -- opt.termguicolors = true   -- Enable true color support
