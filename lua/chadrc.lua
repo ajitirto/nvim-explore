@@ -10,11 +10,9 @@ M.ui = {
   theme = "tokyonight",
 
   statusline = {
-    -- theme = "vscode"
-    separator_style = "round", 
+    separator_style = "round",
   },
+
 }
-
-
 
 return M

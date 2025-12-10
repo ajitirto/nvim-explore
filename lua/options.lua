@@ -1,4 +1,4 @@
-require "nvchad.options"
+require("nvchad.options")
 
 local opt = vim.opt
 
@@ -36,4 +36,3 @@ opt.clipboard:append("unnamedplus")
 --     vim.cmd [[%s/\s\+$//e]]
 --   end,
 -- })
-
