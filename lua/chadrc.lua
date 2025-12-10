@@ -17,7 +17,7 @@ M.ui = {
         separator_style = "round",
     },
     tabufline = {
-        enabled = false,
+        enabled = true,
     },
     cmp = {
         style = "atom",
