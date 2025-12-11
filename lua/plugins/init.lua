@@ -7,6 +7,57 @@ return {
     -- require("plugins.user.folke-snacks"),
     -- hardcode
     {
+        "nvim-treesitter/nvim-treesitter",
+        opts = {
+            indent = { enable = true },
+            auto_install = true,
+            highlight = {
+                enable = true,
+            },
+            ensure_installed = {
+                "vim",
+                "lua",
+                "vimdoc",
+                "html",
+                "css",
+                "dockerfile",
+                "php",
+                "blade",
+                "javascript",
+                "typescript",
+                "python",
+                "c",
+                "cpp",
+                "rust",
+                "go",
+                "gosum",
+                "gomod",
+                "gowork",
+                "json",
+                "yaml",
+                "markdown",
+                "markdown_inline",
+                "erlang",
+                "elixir",
+                "bash",
+                "toml",
+                "python",
+            },
+        },
+    },
+    {
+        "norcalli/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup()
+        end,
+        ft = { "css", "blade", "html", "javascript" },
+    },
+    {
+        "gennaro-tedesco/nvim-jqx",
+        event = { "BufReadPost" },
+        ft = { "json", "yaml" },
+    },
+    {
         "stevearc/conform.nvim",
         opts = require("configs.conform"),
         dependencies = { "mason.nvim" },
