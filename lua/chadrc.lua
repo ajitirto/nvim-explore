@@ -3,7 +3,6 @@ local M = {}
 M.base46 = {
     theme = "tokyonight",
     transparency = true,
-
     hl_override = {
         Comment = { italic = true },
         ["@comment"] = { italic = true },
@@ -12,7 +11,6 @@ M.base46 = {
 
 M.ui = {
     theme = "tokyonight",
-
     statusline = {
         separator_style = "round",
     },
