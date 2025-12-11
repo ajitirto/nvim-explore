@@ -1,49 +1,10 @@
 return {
-
-    -- import form user
-    require("plugins.user.laravel"),
-    require("plugins.user.nvim-treesitter"),
-    require("plugins.user.json"),
-    -- require("plugins.user.folke-snacks"),
-    -- hardcode
     {
         "nvim-treesitter/nvim-treesitter",
-        opts = {
-            indent = { enable = true },
-            auto_install = true,
-            highlight = {
-                enable = true,
-            },
-            ensure_installed = {
-                "vim",
-                "lua",
-                "vimdoc",
-                "html",
-                "css",
-                "dockerfile",
-                "php",
-                "blade",
-                "javascript",
-                "typescript",
-                "python",
-                "c",
-                "cpp",
-                "rust",
-                "go",
-                "gosum",
-                "gomod",
-                "gowork",
-                "json",
-                "yaml",
-                "markdown",
-                "markdown_inline",
-                "erlang",
-                "elixir",
-                "bash",
-                "toml",
-                "python",
-            },
-        },
+        -- memuat file config/nvim-treesitter.lua saat plugin di-setup
+        config = function()
+            require("config.nvim-treesitter")
+        end,
     },
     {
         "norcalli/nvim-colorizer.lua",

@@ -1,0 +1,37 @@
+require("nvim-treesitter.configs").setup({
+    indent = {
+        enable = true
+    },
+    auto_install = true,
+    highlight = {
+        enable = true,
+    },
+    ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "dockerfile",
+        "php",
+        "blade",
+        "javascript",
+        "typescript",
+        "python",
+        "c",
+        "cpp",
+        "rust",
+        "go",
+        "gosum",
+        "gomod",
+        "gowork",
+        "json",
+        "yaml",
+        "markdown",
+        "markdown_inline",
+        "erlang",
+        "elixir",
+        "bash",
+        "toml",
+    },
+})
