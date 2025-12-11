@@ -7,3 +7,10 @@
 - code formatter : golang, php, javascript, typescript, erlang elixir,
 - snippet
 - module and refactor code nvim
+
+## Kendala 
+
+- Mason masih belum bisa terinstall dengan deklaratif
+
+
+
