@@ -25,6 +25,8 @@ local servers = {
     "sqlls",
     "tofu-ls",
 }
-vim.lsp.enable(servers)
+for _, lsp in ipairs(servers) do
+  require("lspconfig")[lsp].setup {}
+end
 
 -- reRd :h vim.lsp.config for changing options of lsp servers
