@@ -10,9 +10,9 @@ local options = {
         css = { "prettier" },
         html = { "prettier" },
         rust = { "rustfmt", lsp_format = "fallback" },
-        go = { "goimports", "gofmt" },
-        ["*"] = { "codespell" },
-        ["_"] = { "trim_whitespace" },
+        go = { "goimports", "gofmt", "golangci-lint" },
+        -- ["*"] = { "codespell" },
+        -- ["_"] = { "trim_whitespace" },
     },
     default_format_opts = {
         lsp_format = "fallback",

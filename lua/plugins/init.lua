@@ -4,7 +4,7 @@ return {
     { require("plugins.jqx") },
     { require("plugins.conform") },
     { require("plugins.nvim-lspconfig") },
-    { require("plugins.hlchunk") },
+    { require("plugins.hlchunk-module") },
     { require("plugins.nvim-tree") },
     { require("plugins.mason") },
     { require("plugins.nvim-dap") },

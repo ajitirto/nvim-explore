@@ -1,21 +1,16 @@
 local lint = require("lint")
 
--- 1. Definisikan linter untuk setiap jenis file
 lint.linters_by_ft = {
-    -- Untuk Python, gunakan linter 'ruff'
     python = { "ruff" },
-    -- Untuk Go, gunakan linter 'golangci-lint'
-    go = { "golangci-lint" },
-    -- Tambahkan jenis file dan linter lainnya di sini, misalnya:
-    -- javascript = { "eslint" },
-    -- lua = { "luacheck" },
+    go = { "golangcilint" },
+    javascript = { "eslint" },
+    lua = { "luacheck" },
+    markdown = { "vale" },
 }
-
--- 2. Atur Autocmd untuk menjalankan linter secara otomatis
--- Linter akan dijalankan SETELAH file disimpan (BufWritePost)
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+local lint_group = vim.api.nvim_create_augroup("AutoLintingGroup", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
+    group = lint_group,
     callback = function()
-        -- Pastikan nvim-lint mencoba menjalankan linter yang sesuai
         lint.try_lint()
     end,
 })

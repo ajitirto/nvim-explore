@@ -37,6 +37,7 @@ return {
         "tofu-ls",
         "typescript-language-server",
         "yaml-language-server",
+        "golangci-lint"
     },
 
     ui = {

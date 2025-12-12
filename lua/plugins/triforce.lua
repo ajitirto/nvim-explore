@@ -5,7 +5,7 @@ return {
             "nvzone/volt",
         },
         config = function()
-            require("configs.triforce")
+            require("configs.triforce-module")
         end,
     },
 }
