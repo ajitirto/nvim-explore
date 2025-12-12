@@ -11,7 +11,7 @@ require("triforce").setup({
 
     -- Keymap configuration
     keymap = {
-        show_profile = "<leader>tp", -- Set to nil to disable default keymap
+        show_profile = "<leader>tl", -- Set to nil to disable default keymap
     },
 
     -- Auto-save interval (in seconds)

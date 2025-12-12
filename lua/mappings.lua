@@ -39,4 +39,18 @@ vim.keymap.set("n", "<C-g", function()
 end, { desc = "tampilkan triforce statsnya" })
 vim.keymap.set("n", "<C-a>", ":Telescope<CR>", { noremap = true, silent = true })
 -- Buat keymap di mode Normal (n)
-vim.keymap.set('n', '<leader>mm', ':messages<CR>', { desc = 'Show Neovim Messages' })
+vim.keymap.set("n", "<leader>mm", ":messages<CR>", { desc = "Show Neovim Messages" })
+
+-- custom for eazy use
+vim.api.nvim_set_keymap("n", "<Leader>q", ":q<CR>", { noremap = true, silent = true })
+
+-- Membuka panel status lazy.nvim
+vim.api.nvim_set_keymap("n", "<Leader>l", ":Lazy<CR>", { noremap = true, silent = true, desc = "Buka Lazy.nvim" })
+vim.api.nvim_set_keymap(
+    "n",
+    "<Leader>ls",
+    ":Lazy sync<CR>",
+    { noremap = true, silent = true, desc = "Buka Lazy.nvim sync" }
+)
+
+vim.api.nvim_set_keymap("n", "<Leader>lm", ":Mason<CR>", { noremap = true, silent = true, desc = "Buka Mason.nvim" })
