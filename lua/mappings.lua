@@ -12,15 +12,15 @@ map("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
-vim.keymap.set("n", "<C-p>", ":FloatermToggle<CR>", { silent = true })
+map("n", "<C-p>", ":FloatermToggle<CR>", { silent = true })
 
 -- Nvim-tree keymaps
 map("n", "<C-b>", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 
-vim.keymap.set("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
+map("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
 
 -- Keyboard users
-vim.keymap.set("n", "<C-t>", function()
+map("n", "<C-t>", function()
     require("menu").open("default")
 end, {})
 
@@ -34,23 +34,25 @@ end, {})
 --     require("menu").open(options, { mouse = true })
 -- end, {})
 
-vim.keymap.set("n", "<C-g", function()
+map("n", "<C-g", function()
     require("triforce").show_profile()
 end, { desc = "tampilkan triforce statsnya" })
-vim.keymap.set("n", "<C-a>", ":Telescope<CR>", { noremap = true, silent = true })
+map("n", "<C-a>", ":Telescope<CR>", { noremap = true, silent = true })
 -- Buat keymap di mode Normal (n)
-vim.keymap.set("n", "<leader>mm", ":messages<CR>", { desc = "Show Neovim Messages" })
+map("n", "<leader>mm", ":messages<CR>", { desc = "Show Neovim Messages" })
 
 -- custom for eazy use
-vim.api.nvim_set_keymap("n", "<Leader>q", ":q<CR>", { noremap = true, silent = true })
+map("n", "<Leader>qq", ":q<CR>", { noremap = true, silent = true, desc = "exit" })
+map("n", "<Leader>qa", ":qa<CR>", { noremap = true, silent = true, desc = "exit for all" })
+
 
 -- Membuka panel status lazy.nvim
-vim.api.nvim_set_keymap("n", "<Leader>l", ":Lazy<CR>", { noremap = true, silent = true, desc = "Buka Lazy.nvim" })
-vim.api.nvim_set_keymap(
+map("n", "<Leader>l", ":Lazy<CR>", { noremap = true, silent = true, desc = "Buka Lazy.nvim" })
+map(
     "n",
     "<Leader>ls",
     ":Lazy sync<CR>",
     { noremap = true, silent = true, desc = "Buka Lazy.nvim sync" }
 )
 
-vim.api.nvim_set_keymap("n", "<Leader>lm", ":Mason<CR>", { noremap = true, silent = true, desc = "Buka Mason.nvim" })
+map("n", "<Leader>lm", ":Mason<CR>", { noremap = true, silent = true, desc = "Buka Mason.nvim" })

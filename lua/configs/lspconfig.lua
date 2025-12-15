@@ -50,3 +50,4 @@ for _, server_name in ipairs(simple_servers) do
         capabilities = lsp_capabilities,
     })
 end
+

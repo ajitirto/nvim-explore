@@ -18,4 +18,5 @@ return {
     { require("plugins.nvim-cmp") },
     { require("plugins.git-blame") },
     { require("plugins.snacks") },
+    { require("plugins.zen-mode") },
 }
