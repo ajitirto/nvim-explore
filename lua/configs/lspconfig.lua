@@ -35,6 +35,7 @@ local simple_servers = {
     "sqlls",
     "dockerls", -- Server umum untuk Dockerfile
     "jsonls", -- Seringkali dibutuhkan untuk config
+    "typescript-language-server",
 }
 
 vim.lsp.enable("tsserver", {
@@ -50,4 +51,3 @@ for _, server_name in ipairs(simple_servers) do
         capabilities = lsp_capabilities,
     })
 end
-
