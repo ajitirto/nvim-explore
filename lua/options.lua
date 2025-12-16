@@ -8,6 +8,9 @@ opt.number = true
 
 -- Enable mouse support in all modes
 opt.mouse = "a"
+
+-- Wrap
+opt.wrap = false
 -- opt.undofile = true
 -- opt.undodir = os.getenv("HOME") .. "/.config/nvim/lua/undodir"
 -- opt.backup = false
