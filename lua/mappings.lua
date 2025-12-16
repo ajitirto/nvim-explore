@@ -56,3 +56,7 @@ map(
 )
 
 map("n", "<Leader>lm", ":Mason<CR>", { noremap = true, silent = true, desc = "Buka Mason.nvim" })
+
+
+
+
