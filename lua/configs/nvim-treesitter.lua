@@ -41,6 +41,7 @@ return {
             "svelte",
             "tsx",
             "typst",
+            "typescript-language-server",
             "regex",
         },
     }),

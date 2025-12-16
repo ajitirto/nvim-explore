@@ -1,24 +1,12 @@
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-require("nvchad.configs.lspconfig").defaults()
-vim.lsp.config("tsserver", {
-    capabilities = lsp_capabilities,
-    init_options = {
-        hostInfo = "neovim",
-    },
-})
+local lspconfig = require("lspconfig") -- Tambahkan ini untuk memanggil .setup()
 
-vim.lsp.config("bashls", {
-    capabilities = lsp_capabilities,
-})
+require("nvchad.configs.lspconfig").defaults() -- Ini tetap dipertahankan
 
-vim.lsp.config("yamlls", {
-    capabilities = lsp_capabilities,
-})
+-- Hapus semua kode tsserver/bashls/yamls/rust_analyzer yang di-comment out/konfigurasi manual.
 
-vim.lsp.config("rust_analyzer", {
-    capabilities = lsp_capabilities,
-})
-
+-- Daftar server yang tidak memerlukan konfigurasi khusus.
+-- Kita akan menggunakan fungsi .setup() dari lspconfig untuk server ini.
 local simple_servers = {
     -- Core Web
     "html",
@@ -30,24 +18,33 @@ local simple_servers = {
     "gopls",
     "omnisharp",
     "phpactor",
-    "ansiblels", -- Mengganti 'ansible-language-server'
-    "erlang_ls", -- Mengganti 'erlang-language-server'
+    "ansiblels",
+    "erlang_ls",
     "sqlls",
-    "dockerls", -- Server umum untuk Dockerfile
-    "jsonls", -- Seringkali dibutuhkan untuk config
-    "typescript-language-server",
+    "dockerls",
+    "jsonls",
+    "bashls", -- Pindahkan bashls ke sini
+    "yamlls", -- Tambahkan yamlls jika diperlukan
+    "rust_analyzer", -- Tambahkan rust_analyzer jika diperlukan
 }
 
-vim.lsp.enable("tsserver", {
-    filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
-})
-
-vim.lsp.enable("bashls", {
-    filetypes = { "sh", "zsh" },
-})
-
+-- 1. Setup Server Sederhana
+-- Ini akan memastikan server-server ini dikonfigurasi dengan capabilities default.
 for _, server_name in ipairs(simple_servers) do
-    vim.lsp.enable(server_name, {
+    lspconfig[server_name].setup({
         capabilities = lsp_capabilities,
     })
 end
+
+-- 2. Setup Server TypeScript (Wajib menggunakan 'tsserver' di lspconfig)
+-- Ini adalah solusi untuk error 'cmd: expected nil' yang Anda lihat sebelumnya.
+lspconfig.tsserver.setup({
+    capabilities = lsp_capabilities,
+    filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
+    init_options = {
+        hostInfo = "neovim",
+    },
+})
+
+-- Hapus semua pemanggilan vim.lsp.config("typescript-language-server", ...)
+-- Hapus semua pemanggilan vim.lsp.enable(...) yang menyebabkan error

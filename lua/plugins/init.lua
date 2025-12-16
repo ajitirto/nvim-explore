@@ -19,5 +19,5 @@ return {
     { require("plugins.git-blame") },
     { require("plugins.snacks") },
     { require("plugins.zen-mode") },
-    {require("plugins.lazygit")},
+    { require("plugins.lazygit") },
 }

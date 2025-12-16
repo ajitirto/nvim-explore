@@ -45,7 +45,7 @@ return {
                 force = false,
             },
             notifier = {
-                timeout = 3000,
+                timeout = 8000,
                 width = { min = 40, max = 0.4 },
                 height = { min = 1, max = 0.6 },
                 margin = { top = 0, right = 1, bottom = 0 },
