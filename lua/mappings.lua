@@ -47,7 +47,7 @@ map("n", "<Leader>qa", ":qa<CR>", { noremap = true, silent = true, desc = "exit 
 
 
 -- Membuka panel status lazy.nvim
-map("n", "<Leader>l", ":Lazy<CR>", { noremap = true, silent = true, desc = "Buka Lazy.nvim" })
+map("n", "<Leader>ll", ":Lazy<CR>", { noremap = true, silent = true, desc = "Buka Lazy.nvim" })
 map(
     "n",
     "<Leader>ls",
