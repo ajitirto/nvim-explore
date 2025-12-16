@@ -25,6 +25,16 @@ return {
                     font = "+4", -- font size increment
                 },
             },
+
+            on_open = function(win)
+                -- Perintah untuk menyembunyikan bilah tab di Kitty
+                vim.fn.system("kitty @ set-tab-bar-visible no")
+            end,
+            -- ** Bagian Penting: on_close **
+            on_close = function()
+                -- Perintah untuk menampilkan kembali bilah tab di Kitty saat keluar dari Zen Mode
+                vim.fn.system("kitty @ set-tab-bar-visible yes")
+            end,
         },
         keys = {
             { "<leader>z", "<cmd>ZenMode<cr>", desc = "Toggle Zen Mode" },
