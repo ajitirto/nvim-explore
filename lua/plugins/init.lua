@@ -20,4 +20,6 @@ return {
     { require("plugins.snacks") },
     { require("plugins.zen-mode") },
     { require("plugins.lazygit") },
+    -- { require("plugins.laravel") },
+    { require("plugins.render-markdown") },
 }
