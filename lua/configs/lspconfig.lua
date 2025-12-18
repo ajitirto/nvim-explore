@@ -30,10 +30,10 @@ for _, server_name in ipairs(simple_servers) do
     })
 end
 
--- lspconfig.tsserver.setup({
---     capabilities = lsp_capabilities,
---     filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
---     init_options = {
---         hostInfo = "neovim",
---     },
--- })
+lspconfig.tsserver.setup({
+    capabilities = lsp_capabilities,
+    filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
+    init_options = {
+        hostInfo = "neovim",
+    },
+})
