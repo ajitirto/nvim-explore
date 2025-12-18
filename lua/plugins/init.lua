@@ -22,4 +22,5 @@ return {
     { require("plugins.lazygit") },
     -- { require("plugins.laravel") },
     { require("plugins.render-markdown") },
+    { require("plugins.multicursor") },
 }
