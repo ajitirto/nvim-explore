@@ -1,3 +1,4 @@
+
 require("nvchad.mappings")
 
 local map = vim.keymap.set
@@ -57,6 +58,10 @@ map(
 
 map("n", "<Leader>lm", ":Mason<CR>", { noremap = true, silent = true, desc = "Buka Mason.nvim" })
 
+-- Mapping untuk menghapus komentar // sampai akhir baris
+map("n", "<leader>d/", ":%s/\\s*\\/\\/.*$//e<CR>", { desc = "Hapus komentar // sampai akhir" })
 
+-- Mapping untuk menghapus komentar ## sampai akhir baris
+map("n", "<leader>d#", ":%s/\\s*##.*$//e<CR>", { desc = "Hapus komentar ## sampai akhir" })
 
 
