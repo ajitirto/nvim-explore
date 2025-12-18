@@ -64,4 +64,5 @@ map("n", "<leader>d/", ":%s/\\s*\\/\\/.*$//e<CR>", { desc = "Hapus komentar // s
 -- Mapping untuk menghapus komentar ## sampai akhir baris
 map("n", "<leader>d#", ":%s/\\s*##.*$//e<CR>", { desc = "Hapus komentar ## sampai akhir" })
 
-
+-- Mapping untuk menghapus komentar -- sampai akhir baris
+map("n", "<leader>d-", ":%s/\\s*--.*$//e<CR>", { desc = "Hapus komentar -- sampai akhir" })
