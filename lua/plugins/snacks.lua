@@ -102,7 +102,7 @@ return {
                 desc = "Command History",
             },
             {
-                "<leader>n",
+                "<leader>cn",
                 function()
                     Snacks.picker.notifications()
                 end,
@@ -111,7 +111,7 @@ return {
             {
                 "<leader>e",
                 function()
-                    Snacks.explorer()
+                    Snafks.explorer()
                 end,
                 desc = "File Explorer",
             },
