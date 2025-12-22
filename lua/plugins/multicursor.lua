@@ -8,63 +8,59 @@ return {
 
         local set = vim.keymap.set
 
-        -- Add or skip cursor above/below the main cursor.
         set({ "n", "x" }, "<up>", function()
             mc.lineAddCursor(-1)
-        end)
+        end, { desc = "Add cursor above" })
+
         set({ "n", "x" }, "<down>", function()
             mc.lineAddCursor(1)
-        end)
+        end, { desc = "Add cursor below" })
+
         set({ "n", "x" }, "<leader><up>", function()
             mc.lineSkipCursor(-1)
-        end)
+        end, { desc = "Skip adding cursor above" })
+
         set({ "n", "x" }, "<leader><down>", function()
             mc.lineSkipCursor(1)
-        end)
+        end, { desc = "Skip adding cursor below" })
 
-        -- Add or skip adding a new cursor by matching word/selection
         set({ "n", "x" }, "<leader>mn", function()
             mc.matchAddCursor(1)
-        end)
+        end, { desc = "Add cursor to next match" })
+
         set({ "n", "x" }, "<leader>ms", function()
             mc.matchSkipCursor(1)
-        end)
+        end, { desc = "Skip next match" })
+
         set({ "n", "x" }, "<leader>mN", function()
             mc.matchAddCursor(-1)
-        end)
+        end, { desc = "Add cursor to previous match" })
+
         set({ "n", "x" }, "<leader>mS", function()
             mc.matchSkipCursor(-1)
-        end)
+        end, { desc = "Skip previous match" })
 
-        -- Add and remove cursors with control + left click.
-        set("n", "<c-leftmouse>", mc.handleMouse)
-        set("n", "<c-leftdrag>", mc.handleMouseDrag)
-        set("n", "<c-leftrelease>", mc.handleMouseRelease)
+        set("n", "<c-leftmouse>", mc.handleMouse, { desc = "Add cursor with mouse click" })
+        set("n", "<c-leftdrag>", mc.handleMouseDrag, { desc = "Add cursors by mouse drag" })
+        set("n", "<c-leftrelease>", mc.handleMouseRelease, { desc = "Finish mouse cursor action" })
 
-        -- Disable and enable cursors.
-        set({ "n", "x" }, "<c-q>", mc.toggleCursor)
+        set({ "n", "x" }, "<c-q>", mc.toggleCursor, { desc = "Toggle (enable/disable) current cursor" })
 
-        -- Mappings defined in a keymap layer only apply when there are
-        -- multiple cursors. This lets you have overlapping mappings.
         mc.addKeymapLayer(function(layerSet)
-            -- Select a different cursor as the main one.
-            layerSet({ "n", "x" }, "<left>", mc.prevCursor)
-            layerSet({ "n", "x" }, "<right>", mc.nextCursor)
+            layerSet({ "n", "x" }, "<left>", mc.prevCursor, { desc = "Focus previous cursor" })
+            layerSet({ "n", "x" }, "<right>", mc.nextCursor, { desc = "Focus next cursor" })
 
-            -- Delete the main cursor.
-            layerSet({ "n", "x" }, "<leader>dx", mc.deleteCursor)
+            layerSet({ "n", "x" }, "<leader>dx", mc.deleteCursor, { desc = "Delete current cursor" })
 
-            -- Enable and clear cursors using escape.
             layerSet("n", "<esc>", function()
                 if not mc.cursorsEnabled() then
                     mc.enableCursors()
                 else
                     mc.clearCursors()
                 end
-            end)
+            end, { desc = "Clear or enable cursors" })
         end)
 
-        -- Customize how cursors look.
         local hl = vim.api.nvim_set_hl
         hl(0, "MultiCursorCursor", { reverse = true })
         hl(0, "MultiCursorVisual", { link = "Visual" })
