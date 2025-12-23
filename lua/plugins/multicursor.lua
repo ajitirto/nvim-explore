@@ -8,22 +8,21 @@ return {
 
         local set = vim.keymap.set
 
-        set({ "n", "x" }, "<up>", function()
+        set({ "n", "x" }, "<A-up>", function()
             mc.lineAddCursor(-1)
         end, { desc = "Add cursor above" })
 
-        set({ "n", "x" }, "<down>", function()
+        set({ "n", "x" }, "<A-down>", function()
             mc.lineAddCursor(1)
         end, { desc = "Add cursor below" })
 
-        set({ "n", "x" }, "<leader><up>", function()
+        set({ "n", "x" }, "<A-S-up>", function()
             mc.lineSkipCursor(-1)
         end, { desc = "Skip adding cursor above" })
 
-        set({ "n", "x" }, "<leader><down>", function()
+        set({ "n", "x" }, "<A-S-down>", function()
             mc.lineSkipCursor(1)
         end, { desc = "Skip adding cursor below" })
-
         set({ "n", "x" }, "<leader>mn", function()
             mc.matchAddCursor(1)
         end, { desc = "Add cursor to next match" })
