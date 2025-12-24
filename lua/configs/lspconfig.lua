@@ -22,6 +22,7 @@ local simple_servers = {
     "bashls",
     "yamlls",
     "rust_analyzer",
+    "elixirls"
 }
 
 for _, server_name in ipairs(simple_servers) do
@@ -36,4 +37,15 @@ lspconfig.tsserver.setup({
     init_options = {
         hostInfo = "neovim",
     },
+})
+
+lspconfig.elixirls.setup({
+  capabilities = lsp_capabilities,
+  cmd = { "elixir-ls" }, -- Pastikan executable elixir-ls ada di PATH
+  settings = {
+    elixirLS = {
+      dialyzerEnabled = true,
+      fetchDeps = false,
+    },
+  },
 })
