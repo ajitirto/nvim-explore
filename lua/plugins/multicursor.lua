@@ -33,7 +33,7 @@ return {
             layerSet({ "n", "x" }, "<A-left>", mc.prevCursor, { desc = "Focus previous cursor" })
             layerSet({ "n", "x" }, "<A-right>", mc.nextCursor, { desc = "Focus next cursor" })
 
-            layerSet({ "n", "x" }, "<leader>dd", mc.deleteCursor, { desc = "Delete current cursor" })
+            layerSet({ "n", "x" }, "<leader>dx", mc.deleteCursor, { desc = "Delete current cursor" })
 
             layerSet("n", "<esc>", function()
                 if not mc.cursorsEnabled() then
