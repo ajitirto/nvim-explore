@@ -22,7 +22,7 @@ local simple_servers = {
     "bashls",
     "yamlls",
     "rust_analyzer",
-    "elixirls"
+    "elixirls",
 }
 
 for _, server_name in ipairs(simple_servers) do
@@ -40,12 +40,34 @@ lspconfig.tsserver.setup({
 })
 
 lspconfig.elixirls.setup({
-  capabilities = lsp_capabilities,
-  cmd = { "elixir-ls" }, -- Pastikan executable elixir-ls ada di PATH
-  settings = {
-    elixirLS = {
-      dialyzerEnabled = true,
-      fetchDeps = false,
+    capabilities = lsp_capabilities,
+    cmd = { "elixir-ls" }, -- Pastikan executable elixir-ls ada di PATH
+    settings = {
+        elixirLS = {
+            dialyzerEnabled = true,
+            fetchDeps = false,
+        },
     },
-  },
+})
+
+lspconfig.rust_analyzer.setup({
+    capabilities = lsp_capabilities,
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true,
+            },
+        },
+    },
 })
