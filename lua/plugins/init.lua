@@ -18,7 +18,6 @@ return {
     { require("plugins.nvim-cmp") },
     { require("plugins.git-blame") },
     { require("plugins.snacks") },
-    { require("plugins.zen-mode") },
     { require("plugins.lazygit") },
     -- { require("plugins.laravel") },
     { require("plugins.render-markdown") },
