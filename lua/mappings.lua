@@ -67,3 +67,5 @@ map("n", "<leader>d#", ":%s/\\s*##.*$//e<CR>", { desc = "Hapus komentar ## sampa
 -- Mapping untuk menghapus komentar -- sampai akhir baris
 map("n", "<leader>d-", ":%s/\\s*--.*$//e<CR>", { desc = "Hapus komentar -- sampai akhir" })
 map('n', '<leader>ca', ':%bd|e#|bd#<CR>', { desc = 'Close all buffers except current' })
+-- Tekan Esc untuk keluar dari mode terminal
+map('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true,  desc = "keluar dari mode terminal"})
