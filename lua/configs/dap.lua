@@ -1,20 +1,39 @@
--- File: lua/configs/dap.lua
-
 local dap = require("dap")
 local dapui = require("dapui")
+local dapgo = require("dap-go")
+
+dapgo.setup({
+
+    dap_configurations = {
+        {
+            type = "go",
+            name = "Debug",
+            request = "launch",
+            program = "${file}",
+        },
+    },
+
+    delve = {
+        path = "dlv",
+        initialize_timeout_sec = 20,
+        port = "${port}",
+        args = {},
+        build_flags = "",
+    },
+})
 
 dapui.setup({
     icons = { expanded = "▾", collapsed = "▸" },
     layouts = {
         {
             elements = {
-                { id = "scopes", size = 0.25 }, -- Variable saat ini
-                "breakpoints", -- Daftar breakpoint
-                "stacks", -- Call stack
-                "watches", -- Watch expressions
+                { id = "scopes", size = 0.25 },
+                "breakpoints",
+                "stacks",
+                "watches",
             },
-            size = 10, -- Tinggi panel (dalam baris/kolom, tergantung posisi)
-            position = "bottom", -- Panel diletakkan di bagian bawah
+            size = 10,
+            position = "bottom",
         },
     },
 })
