@@ -1,8 +1,11 @@
 local M = {}
 
-M.base46 = {
+M.ui = {
     theme = "tokyonight",
     transparency = false,
+    statusline = {
+    theme = "vscode_colored"
+  }
 }
 
 return M
