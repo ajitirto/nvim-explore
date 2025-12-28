@@ -23,4 +23,5 @@ return {
     { require("plugins.render-markdown") },
     { require("plugins.multicursor") },
     { require("plugins.nvim-ufo") },
+    { require("plugins.noice") },
 }
