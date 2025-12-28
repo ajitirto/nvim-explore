@@ -31,7 +31,24 @@ map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Pindahkan seleksi ke bawah" })
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Pindahkan seleksi ke atas" })
 map("n", "gh", "0", { desc = "Jump: Start of line" })
 map("n", "gl", "$", { desc = "Jump: End of line" })
+map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "DAP Add breakpoint at line" })
+map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "DAP Start or continue debugger" })
+
 -- function
+map("n", "<leader>dus", function()
+  local widgets = require("dap.ui.widgets")
+  local sidebar = widgets.sidebar(widgets.scopes)
+  sidebar.open()
+end, { desc = "DAP Open variable sidebar" })
+
+map("n", "<leader>dgt", function()
+  require("dap-go").debug_test()
+end, { desc = "DAP Debug go test" })
+
+map("n", "<leader>dgl", function()
+  require("dap-go").debug_last_test()
+end, { desc = "DAP Debug last go test" })
+
 map("n", "<C-t>", function()
     require("menu").open("default")
 end, {})
