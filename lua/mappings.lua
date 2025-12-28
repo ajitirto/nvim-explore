@@ -61,3 +61,11 @@ local del = vim.keymap.del
 del("n", "<leader>b")
 del("n", "gr")
 del("n", "gc")
+
+
+local dap = require('dap')
+
+map('n', '<leader>d1', dap.continue, { desc = 'Debug: Start/Continue' })
+map('n', '<leader>d2', dap.step_over, { desc = 'Debug: Step Over' })
+map('n', '<leader>d3', dap.step_into, { desc = 'Debug: Step Into' })
+map('n', '<leader>d4', dap.step_out, { desc = 'Debug: Step Out' })
