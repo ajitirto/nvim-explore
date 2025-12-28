@@ -29,6 +29,8 @@ map("n", "<A-j>", ":m .+1<CR>==", { desc = "Pindahkan baris ke bawah" })
 map("n", "<A-k>", ":m .-2<CR>==", { desc = "Pindahkan baris ke atas" })
 map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Pindahkan seleksi ke bawah" })
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Pindahkan seleksi ke atas" })
+map("n", "gh", "0", { desc = "Jump: Start of line" })
+map("n", "gl", "$", { desc = "Jump: End of line" })
 -- function
 map("n", "<C-t>", function()
     require("menu").open("default")
