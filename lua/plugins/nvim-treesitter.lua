@@ -1,8 +1,9 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        event = { "BufReadPost", "BufNewFile" }, -- Optimasi startup
-        build = ":TSUpdate", -- Perintah build untuk memastikan parser terinstall
+        event = { "BufReadPost", "BufNewFile" },
+        lazy = false,
+        build = ":TSUpdate",
         config = function()
             require("configs.nvim-treesitter")
         end,
