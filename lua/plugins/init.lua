@@ -12,7 +12,6 @@ return {
     { require("plugins.menu") },
     { require("plugins.timerly") },
     { require("plugins.floaterm") },
-    { require("plugins.triforce") },
     { require("plugins.todo-comments") },
     { require("plugins.trouble") },
     { require("plugins.nvim-cmp") },
