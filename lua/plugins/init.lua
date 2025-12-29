@@ -10,7 +10,6 @@ return {
     { require("plugins.nvim-lint") },
     { require("plugins.volt") },
     { require("plugins.menu") },
-    { require("plugins.timerly") },
     { require("plugins.todo-comments") },
     { require("plugins.trouble") },
     { require("plugins.nvim-cmp") },
