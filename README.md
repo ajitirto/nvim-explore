@@ -2,7 +2,7 @@
 
 **Plugin**
 
-![plugin-custom](./image/plugin-custom.png)
+![plugin-custom](./image/plugin-nvim.png)
 
 **Neovim Version**
  
