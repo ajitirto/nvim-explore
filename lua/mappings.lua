@@ -69,3 +69,9 @@ map('n', '<leader>d1', dap.continue, { desc = 'Debug: Start/Continue' })
 map('n', '<leader>d2', dap.step_over, { desc = 'Debug: Step Over' })
 map('n', '<leader>d3', dap.step_into, { desc = 'Debug: Step Into' })
 map('n', '<leader>d4', dap.step_out, { desc = 'Debug: Step Out' })
+
+
+map('t', '<C-h>', [[<C-\><C-n><C-w>h]], { silent = true })
+map('t', '<C-j>', [[<C-\><C-n><C-w>j]], { silent = true })
+map('t', '<C-k>', [[<C-\><C-n><C-w>k]], { silent = true })
+map('t', '<C-l>', [[<C-\><C-n><C-w>l]], { silent = true })
