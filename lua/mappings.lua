@@ -10,7 +10,6 @@ map("n", "<leader>tq", "<cmd>tabclose<CR>", { silent = true, desc = "Close curre
 map("n", "<leader>tn", "<cmd>tabn<CR>", { silent = true, desc = "Go to next tab" })
 map("n", "<leader>tp", "<cmd>tabp<CR>", { silent = true, desc = "Go to previous tab" })
 map("n", "<leader>tf", "<cmd>tabnew %<CR>", { silent = true, desc = "Open current buffer in new tab" })
-map("n", "<C-p>", ":FloatermToggle<CR>", { silent = true, desc = "Terminal floaterm" })
 map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true, desc = "Toggle NvimTree" })
 map("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
 map("n", "<C-a>", ":Telescope<CR>", { noremap = true, silent = true })
@@ -36,25 +35,22 @@ map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "DAP Start or continue
 
 -- function
 map("n", "<leader>dus", function()
-  local widgets = require("dap.ui.widgets")
-  local sidebar = widgets.sidebar(widgets.scopes)
-  sidebar.open()
+    local widgets = require("dap.ui.widgets")
+    local sidebar = widgets.sidebar(widgets.scopes)
+    sidebar.open()
 end, { desc = "DAP Open variable sidebar" })
 
 map("n", "<leader>dgt", function()
-  require("dap-go").debug_test()
+    require("dap-go").debug_test()
 end, { desc = "DAP Debug go test" })
 
 map("n", "<leader>dgl", function()
-  require("dap-go").debug_last_test()
+    require("dap-go").debug_last_test()
 end, { desc = "DAP Debug last go test" })
 
 map("n", "<C-t>", function()
     require("menu").open("default")
 end, {})
-map("n", "<C-g", function()
-    require("triforce").show_profile()
-end, { desc = "tampilkan triforce statsnya" })
 
 local del = vim.keymap.del
 
@@ -62,16 +58,14 @@ del("n", "<leader>b")
 del("n", "gr")
 del("n", "gc")
 
+local dap = require("dap")
 
-local dap = require('dap')
+map("n", "<leader>d1", dap.continue, { desc = "Debug: Start/Continue" })
+map("n", "<leader>d2", dap.step_over, { desc = "Debug: Step Over" })
+map("n", "<leader>d3", dap.step_into, { desc = "Debug: Step Into" })
+map("n", "<leader>d4", dap.step_out, { desc = "Debug: Step Out" })
 
-map('n', '<leader>d1', dap.continue, { desc = 'Debug: Start/Continue' })
-map('n', '<leader>d2', dap.step_over, { desc = 'Debug: Step Over' })
-map('n', '<leader>d3', dap.step_into, { desc = 'Debug: Step Into' })
-map('n', '<leader>d4', dap.step_out, { desc = 'Debug: Step Out' })
-
-
-map('t', '<C-h>', [[<C-\><C-n><C-w>h]], { silent = true })
-map('t', '<C-j>', [[<C-\><C-n><C-w>j]], { silent = true })
-map('t', '<C-k>', [[<C-\><C-n><C-w>k]], { silent = true })
-map('t', '<C-l>', [[<C-\><C-n><C-w>l]], { silent = true })
+map("t", "<C-h>", [[<C-\><C-n><C-w>h]], { silent = true })
+map("t", "<C-j>", [[<C-\><C-n><C-w>j]], { silent = true })
+map("t", "<C-k>", [[<C-\><C-n><C-w>k]], { silent = true })
+map("t", "<C-l>", [[<C-\><C-n><C-w>l]], { silent = true })
