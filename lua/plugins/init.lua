@@ -24,4 +24,5 @@ return {
     { require("plugins.multicursor") },
     { require("plugins.nvim-ufo") },
     { require("plugins.noice") },
+    { require("plugins.smear-cursor") },
 }
