@@ -19,7 +19,7 @@ return {
     { require("plugins.git-blame") },
     { require("plugins.snacks") },
     { require("plugins.lazygit") },
-    -- { require("plugins.laravel") },
+    { require("plugins.laravel") },
     { require("plugins.render-markdown") },
     { require("plugins.multicursor") },
     { require("plugins.nvim-ufo") },
