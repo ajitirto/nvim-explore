@@ -25,4 +25,5 @@ return {
     { require("plugins.nvim-ufo") },
     { require("plugins.noice") },
     { require("plugins.smear-cursor") },
+    { require("plugins.neotest") },
 }
