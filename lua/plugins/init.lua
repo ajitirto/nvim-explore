@@ -23,4 +23,5 @@ return {
     { require("plugins.noice") },
     { require("plugins.smear-cursor") },
     { require("plugins.neotest") },
+    { require("plugins.neoscroll") },
 }
