@@ -42,6 +42,7 @@ return {
             "tsx",
             "typst",
             "regex",
+            "astro",
         },
     }),
 }
