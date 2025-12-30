@@ -1,73 +1,56 @@
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lspconfig = require("lspconfig")
 
-require("nvchad.configs.lspconfig").defaults()
-
-local simple_servers = {
-    -- Core Web
-    "html",
-    "cssls",
-    -- Umum
-    "lua_ls",
-    "lemminx",
-    "clangd",
-    "gopls",
-    "omnisharp",
-    "phpactor",
-    "ansiblels",
-    -- "erlang_ls",
-    "sqlls",
-    "dockerls",
-    "jsonls",
-    "bashls",
-    "yamlls",
-    "rust_analyzer",
-    "elixirls",
-}
-
-for _, server_name in ipairs(simple_servers) do
-    lspconfig[server_name].setup({
-        capabilities = lsp_capabilities,
-    })
-end
-
-lspconfig.tsserver.setup({
+vim.lsp.config("html", {
     capabilities = lsp_capabilities,
-    filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
-    init_options = {
-        hostInfo = "neovim",
-    },
 })
 
-lspconfig.elixirls.setup({
-    capabilities = lsp_capabilities,
-    cmd = { "elixir-ls" }, -- Pastikan executable elixir-ls ada di PATH
-    settings = {
-        elixirLS = {
-            dialyzerEnabled = true,
-            fetchDeps = false,
-        },
-    },
-})
-
-lspconfig.rust_analyzer.setup({
-    capabilities = lsp_capabilities,
+vim.lsp.config("rust_analyzer", {
     settings = {
         ["rust-analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true,
+            diagnostics = {
+                enable = false,
             },
         },
     },
 })
+
+vim.lsp.config("lua_ls", {
+    on_init = function(client)
+        if client.workspace_folders then
+            local path = client.workspace_folders[1].name
+            if
+                path ~= vim.fn.stdpath("config")
+                and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
+            then
+                return
+            end
+        end
+
+        client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+            runtime = {
+                version = "LuaJIT",
+                path = {
+                    "lua/?.lua",
+                    "lua/?/init.lua",
+                },
+            },
+            workspace = {
+                checkThirdParty = false,
+                library = {
+                    vim.env.VIMRUNTIME,
+                },
+            },
+        })
+    end,
+    settings = {
+        Lua = {},
+    },
+})
+
+local lsp = vim.lsp.enable
+
+lsp("astro")
+lsp("gopls")
+lsp("ts_ls")
+lsp("html")
+lsp("lua_ls")
