@@ -4,6 +4,9 @@ vim.lsp.config("html", {
     capabilities = lsp_capabilities,
 })
 
+vim.lsp.config("cssls", {
+    capabilities = lsp_capabilities,
+})
 vim.lsp.config("rust_analyzer", {
     settings = {
         ["rust-analyzer"] = {
@@ -47,6 +50,22 @@ vim.lsp.config("lua_ls", {
     },
 })
 
+vim.lsp.config("elixirls", {
+    cmd = { "/home/ajitirto/Downloads/elixirls/language_server.sh" },
+})
+
+vim.lsp.config("dockerls", {
+    settings = {
+        docker = {
+            languageserver = {
+                formatter = {
+                    ignoreMultilineInstructions = true,
+                },
+            },
+        },
+    },
+})
+
 local lsp = vim.lsp.enable
 
 lsp("astro")
@@ -54,3 +73,11 @@ lsp("gopls")
 lsp("ts_ls")
 lsp("html")
 lsp("lua_ls")
+lsp("elixirls")
+lsp("bashls")
+lsp("cgplangd")
+lsp("phpactor")
+lsp("phpactor")
+lsp("ansiblels")
+lsp("sqlls")
+lsp("dockerls")
