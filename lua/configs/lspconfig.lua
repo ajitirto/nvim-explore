@@ -81,3 +81,22 @@ lsp("phpactor")
 lsp("ansiblels")
 lsp("sqlls")
 lsp("dockerls")
+
+vim.lsp.config('markdown_oxide', {
+  capabilities = vim.tbl_deep_extend(
+    'force',
+    require("cmp_nvim_lsp").default_capabilities(),
+    {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true,
+        },
+      },
+    }
+  ),
+  root_dir = require('lspconfig').util.root_pattern('.git', 'index.md', '.obsidian'),
+})
+
+vim.lsp.enable('markdown_oxide', {
+  filetypes = { 'markdown', 'markdown.mdx' },
+})
