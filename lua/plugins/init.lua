@@ -24,4 +24,5 @@ return {
     { require("plugins.smear-cursor") },
     { require("plugins.neotest") },
     { require("plugins.neoscroll") },
+    { require("plugins.vim-surround") },
 }
