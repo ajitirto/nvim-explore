@@ -25,4 +25,5 @@ return {
     { require("plugins.neotest") },
     { require("plugins.neoscroll") },
     { require("plugins.vim-surround") },
+    { require("plugins.devdocs") },
 }
