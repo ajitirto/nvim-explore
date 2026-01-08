@@ -26,4 +26,5 @@ return {
     { require("plugins.neoscroll") },
     { require("plugins.vim-surround") },
     { require("plugins.devdocs") },
+    { require("plugins.flash") },
 }
