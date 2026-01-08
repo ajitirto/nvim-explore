@@ -2,7 +2,7 @@
 
 **Plugin**
 
-![plugin-custom](./image/plugin-nvim.png)
+![plugin-custom](./image/update-plugin.png)
 
 **Neovim Version**
  
@@ -20,7 +20,7 @@ Run "nvim -V1 -v" for more info
 **Struktur File**
 
 ```bash
-➜  nvim git:(main) ✗ tree
+➜  nvim git:(main) ✗ tree              
 .
 ├── image
 │   └── plugin-nvim.png
@@ -47,6 +47,8 @@ Run "nvim -V1 -v" for more info
 │   └── plugins
 │       ├── colorizer.lua
 │       ├── conform.lua
+│       ├── devdocs.lua
+│       ├── flash.lua
 │       ├── git-blame.lua
 │       ├── init.lua
 │       ├── jqx.lua
@@ -70,8 +72,12 @@ Run "nvim -V1 -v" for more info
 │       ├── snacks.lua
 │       ├── todo-comments.lua
 │       ├── trouble.lua
+│       ├── vim-surround.lua
 │       └── volt.lua
 └── README.md
+
+4 directories, 49 files
+
 ```
 
 **Checkhealth**
