@@ -13,9 +13,9 @@ return {
             ["<C-d>"] = function()
                 neoscroll.ctrl_d({ duration = 250 })
             end,
-            -- ["<C-b>"] = function()
-            --     neoscroll.ctrl_b({ duration = 450 })
-            -- end,
+            ["<C-b>"] = function()
+                neoscroll.ctrl_b({ duration = 450 })
+            end,
             ["<C-f>"] = function()
                 neoscroll.ctrl_f({ duration = 450 })
             end,
