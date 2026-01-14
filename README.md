@@ -86,5 +86,6 @@ Run "nvim -V1 -v" for more info
 <cmd>Checkhealth<CR>
 
 ```
+**OS :** Linux Mint
 
 ---
