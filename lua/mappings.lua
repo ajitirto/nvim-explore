@@ -69,3 +69,5 @@ map("t", "<C-h>", [[<C-\><C-n><C-w>h]], { silent = true })
 map("t", "<C-j>", [[<C-\><C-n><C-w>j]], { silent = true })
 map("t", "<C-k>", [[<C-\><C-n><C-w>k]], { silent = true })
 map("t", "<C-l>", [[<C-\><C-n><C-w>l]], { silent = true })
+
+map('t', '<C-S-l>', [[<C-\><C-n>iclear<CR>]], { desc = "Clear terminal screen with command" })
