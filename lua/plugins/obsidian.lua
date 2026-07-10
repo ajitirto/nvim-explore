@@ -1,10 +1,23 @@
 return {
   "obsidian-nvim/obsidian.nvim",
-  version = "*", -- use latest release, remove to use latest commit
-  ---@module 'obsidian'
-  ---@type obsidian.config
+  version = "*",
+  lazy=false,
+  ft = "markdown",
+  cmd = {
+    "ObsidianNew",
+    "ObsidianQuickSwitch",
+    "ObsidianFollowLink",
+    "ObsidianSearch",
+    "ObsidianTemplate",
+    "ObsidianToday",
+    "ObsidianYesterday",
+    "ObsidianOpen",
+  },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
   opts = {
-    legacy_commands = false, -- this will be removed in 4.0.0
+    legacy_commands = false,
     workspaces = {
       {
         name = "personal",
