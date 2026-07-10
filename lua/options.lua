@@ -11,6 +11,8 @@ opt.mouse = "a"
 
 -- Wrap
 opt.wrap = false
+
+opt.backupcopy = "yes"
 -- opt.undofile = true
 -- opt.undodir = os.getenv("HOME") .. "/.config/nvim/lua/undodir"
 -- opt.backup = false
