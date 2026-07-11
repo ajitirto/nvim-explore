@@ -12,4 +12,19 @@ M.ui = {
     },
 }
 
+M.mason = {
+  pkgs = {
+    "gopls",
+    "golangci-lint",
+    "gofumpt",
+
+    "dockerfile-language-server",
+    "docker-compose-language-service",
+    "yaml-language-server",
+
+    "prettier",
+    "stylua",
+  },
+}
+
 return M
