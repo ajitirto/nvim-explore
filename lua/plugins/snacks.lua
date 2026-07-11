@@ -8,8 +8,9 @@ return {
             bigfile = { enabled = true },
             dashboard = { enabled = true },
             explorer = {
-                preplace_netrw = true,
-                trash = true,
+                enabled = false
+                -- preplace_netrw = true,
+                -- trash = true,
             },
             indent = { enabled = true },
             input = { enabled = true },
