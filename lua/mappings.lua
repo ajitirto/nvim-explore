@@ -10,9 +10,7 @@ map("n", "<leader>tq", "<cmd>tabclose<CR>", { silent = true, desc = "Close curre
 map("n", "<leader>tn", "<cmd>tabn<CR>", { silent = true, desc = "Go to next tab" })
 map("n", "<leader>tp", "<cmd>tabp<CR>", { silent = true, desc = "Go to previous tab" })
 map("n", "<leader>tf", "<cmd>tabnew %<CR>", { silent = true, desc = "Open current buffer in new tab" })
--- map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true, desc = "Toggle NvimTree" })
 map("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
--- map("n", "<C-a>", ":Telescope<CR>", { noremap = true, silent = true })
 map("n", "<leader>mm", ":messages<CR>", { desc = "Show Neovim Messages" })
 map("n", "<Leader>qq", ":q<CR>", { noremap = true, silent = true, desc = "exit" })
 map("n", "<Leader>qa", ":qa<CR>", { noremap = true, silent = true, desc = "exit for all" })
@@ -71,3 +69,7 @@ map("t", "<C-k>", [[<C-\><C-n><C-w>k]], { silent = true })
 map("t", "<C-l>", [[<C-\><C-n><C-w>l]], { silent = true })
 
 map("t", "<C-S-l>", [[<C-\><C-n>iclear<CR>]], { desc = "Clear terminal screen with command" })
+
+map("n", "<C-n>", function()
+    Snacks.explorer({ toggle = true })
+end, { desc = "Toggle Snacks Explorer" })

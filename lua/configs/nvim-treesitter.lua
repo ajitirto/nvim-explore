@@ -48,6 +48,7 @@ return {
                 "astro",
                 "terraform",
                 "hcl",
+                "norg",
             },
         },
         config = function(_, opts)

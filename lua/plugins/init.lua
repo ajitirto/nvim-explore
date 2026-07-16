@@ -4,7 +4,6 @@ return {
     { require("plugins.jqx") },
     { require("plugins.conform") },
     { require("plugins.nvim-lspconfig") },
-    { require("plugins.nvim-tree") },
     { require("plugins.nvim-dap") },
     { require("plugins.nvim-dap-python") },
     { require("plugins.nvim-lint") },

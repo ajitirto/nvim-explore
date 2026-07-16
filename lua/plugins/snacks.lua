@@ -2,21 +2,76 @@ return {
     {
         "folke/snacks.nvim",
         priority = 1000,
+        dependencies = {
+            -- Icon
+            { "nvim-tree/nvim-web-devicons" },
+            -- Git status explorer
+            { "lewis6991/gitsigns.nvim" },
+        },
         lazy = false,
         opts = {
             lazygit = {},
             bigfile = { enabled = true },
             dashboard = { enabled = true },
             explorer = {
-                enabled = false
-                -- preplace_netrw = true,
-                -- trash = true,
+                enabled = true,
+                replace_netrw = true,
             },
             indent = { enabled = true },
             input = { enabled = true },
             picker = {
-                source = {
-                    explorer = {},
+                enabled = true,
+                -- layout = {
+                --     preset = "ivy",
+                --     layout = { position = "top" },
+                -- },
+
+                sources = {
+
+                    explorer = {
+                        trash = true,
+                        win = {
+                            list = {
+                                keys = {
+                                    ["<C-n>"] = "close",
+                                },
+                            },
+                        },
+
+                        filter = {
+                            exclude = {
+                                ".git",
+                                "node_modules",
+                                ".DS_Store",
+                                "__pycache__",
+                            },
+                        },
+                        auto_close = false,
+
+                        hidden = true,
+
+                        ignored = false,
+
+                        follow_file = true,
+
+                        focus = "list",
+
+                        tree = true,
+
+                        watch = true,
+
+                        diagnostics = true,
+
+                        git_status = true,
+
+                        layout = {
+                            preset = "sidebar",
+                            layout = {
+                                position = "right",
+                                width = 35,
+                            },
+                        },
+                    },
                 },
             },
             quickfile = { enabled = true },
@@ -112,7 +167,7 @@ return {
             {
                 "<leader>e",
                 function()
-                    Snafks.explorer()
+                    Snacks.explorer()
                 end,
                 desc = "File Explorer",
             },
@@ -289,13 +344,6 @@ return {
                     Snacks.picker.autocmds()
                 end,
                 desc = "Autocmds",
-            },
-            {
-                "<leader>sb",
-                function()
-                    Snacks.picker.lines()
-                end,
-                desc = "Buffer Lines",
             },
             {
                 "<leader>sc",
@@ -509,13 +557,6 @@ return {
                     Snacks.scratch.select()
                 end,
                 desc = "Select Scratch Buffer",
-            },
-            {
-                "<leader>n",
-                function()
-                    Snacks.notifier.show_history()
-                end,
-                desc = "Notification History",
             },
             {
                 "<leader>bq",
