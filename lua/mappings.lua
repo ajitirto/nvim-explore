@@ -74,6 +74,6 @@ map("n", "<C-n>", function()
     Snacks.explorer({ toggle = true })
 end, { desc = "Toggle Snacks Explorer" })
 
-map("n", "<C-h>", "<cmd>checkhealth<CR>", {
+map("n", "<leader>gh", "<cmd>checkhealth<CR>", {
   desc = "Run Neovim health check",
 })

@@ -13,18 +13,25 @@ M.ui = {
 }
 
 M.mason = {
-  pkgs = {
-    "gopls",
-    "golangci-lint",
-    "gofumpt",
+    pkgs = {
+        "gopls",
+        "golangci-lint",
+        "gofumpt",
 
-    "dockerfile-language-server",
-    "docker-compose-language-service",
-    "yaml-language-server",
+        "dockerfile-language-server",
+        "docker-compose-language-service",
+        "yaml-language-server",
 
-    "prettier",
-    "stylua",
-  },
+        "prettier",
+        "stylua",
+        "terraform-ls",
+        "helm-ls",
+        "json-lsp",
+        "basedpyright",
+        "markdownlint",
+        "taplo",
+        "nginx-language-server",
+    },
 }
 
 return M

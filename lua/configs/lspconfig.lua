@@ -1,12 +1,9 @@
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-vim.lsp.config("html", {
+vim.lsp.config("*", {
     capabilities = lsp_capabilities,
 })
 
-vim.lsp.config("cssls", {
-    capabilities = lsp_capabilities,
-})
 vim.lsp.config("rust_analyzer", {
     settings = {
         ["rust-analyzer"] = {
@@ -15,43 +12,6 @@ vim.lsp.config("rust_analyzer", {
             },
         },
     },
-})
-
-vim.lsp.config("lua_ls", {
-    on_init = function(client)
-        if client.workspace_folders then
-            local path = client.workspace_folders[1].name
-            if
-                path ~= vim.fn.stdpath("config")
-                and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
-            then
-                return
-            end
-        end
-
-        client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-            runtime = {
-                version = "LuaJIT",
-                path = {
-                    "lua/?.lua",
-                    "lua/?/init.lua",
-                },
-            },
-            workspace = {
-                checkThirdParty = false,
-                library = {
-                    vim.env.VIMRUNTIME,
-                },
-            },
-        })
-    end,
-    settings = {
-        Lua = {},
-    },
-})
-
-vim.lsp.config("elixirls", {
-    cmd = { "/home/ajitirto/Downloads/elixirls/language_server.sh" },
 })
 
 vim.lsp.config("dockerls", {
@@ -64,39 +24,149 @@ vim.lsp.config("dockerls", {
             },
         },
     },
+    filetypes = {
+        "dockerfile",
+    },
 })
 
-local lsp = vim.lsp.enable
+vim.lsp.config("markdown_oxide", {
+    root_dir = function(bufnr, on_dir)
+        local root = vim.fs.root(bufnr, {
+            ".git",
+            ".obsidian",
+            "index.md",
+        })
 
-lsp("astro")
-lsp("gopls")
-lsp("ts_ls")
-lsp("html")
-lsp("lua_ls")
-lsp("elixirls")
-lsp("bashls")
-lsp("clangd")
-lsp("phpactor")
-lsp("phpactor")
-lsp("ansiblels")
-lsp("sqlls")
-lsp("dockerls")
+        if root then
+            on_dir(root)
+        end
+    end,
 
-vim.lsp.config('markdown_oxide', {
-  capabilities = vim.tbl_deep_extend(
-    'force',
-    require("cmp_nvim_lsp").default_capabilities(),
-    {
-      workspace = {
-        didChangeWatchedFiles = {
-          dynamicRegistration = true,
+    filetypes = {
+        "markdown",
+        "markdown.mdx",
+    },
+})
+
+vim.lsp.config("terraformls", {
+    filetypes = {
+        "terraform",
+        "terraform-vars",
+        "hcl",
+    },
+})
+
+vim.lsp.config("helm_ls", {
+    settings = {
+        ["helm-ls"] = {
+            yamlls = {
+                enabled = true,
+            },
         },
-      },
-    }
-  ),
-  root_dir = require('lspconfig').util.root_pattern('.git', 'index.md', '.obsidian'),
+    },
+    filetypes = {
+        "helm",
+    },
 })
 
-vim.lsp.enable('markdown_oxide', {
-  filetypes = { 'markdown', 'markdown.mdx' },
+vim.lsp.config("jsonls", {
+    settings = {
+        json = {
+            validate = {
+                enable = true,
+            },
+        },
+    },
 })
+
+vim.lsp.config("basedpyright", {
+    settings = {
+        basedpyright = {
+            analysis = {
+                typeCheckingMode = "recommended",
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+            },
+        },
+    },
+})
+
+vim.lsp.config("taplo", {})
+vim.lsp.config("docker_compose_language_service", {
+    filetypes = {
+        "yaml",
+    },
+})
+vim.lsp.config("nginx_language_server", {})
+
+vim.lsp.config("yamlls", {
+    settings = {
+        yaml = {
+            validate = true,
+            completion = true,
+            hover = true,
+
+            schemas = {
+                kubernetes = {
+                    "k8s/**/*.yaml",
+                    "manifests/**/*.yaml",
+                },
+            },
+        },
+    },
+})
+
+vim.lsp.config("bashls", {
+    filetypes = {
+        "sh",
+        "bash",
+        "zsh",
+    },
+})
+
+local servers = {
+    -- Web
+    "html",
+    "cssls",
+    "ts_ls",
+    "astro",
+
+    -- Programming
+    "lua_ls",
+    "gopls",
+    "rust_analyzer",
+    "clangd",
+    "phpactor",
+    "basedpyright",
+    "elixirls",
+
+    -- Shell & Automation
+    "bashls",
+    "ansiblels",
+
+    -- Database
+    "sqlls",
+
+    -- Containers
+    "dockerls",
+    "docker_compose_language_service",
+
+    -- Infrastructure
+    "terraformls",
+    "helm_ls",
+    "yamlls",
+
+    -- Config Files
+    "jsonls",
+    "taplo",
+
+    -- Documentation
+    "markdown_oxide",
+
+    -- Web Server
+    "nginx_language_server",
+}
+
+for _, server in ipairs(servers) do
+    vim.lsp.enable(server)
+end
