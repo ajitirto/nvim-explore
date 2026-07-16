@@ -28,4 +28,5 @@ return {
     { require("plugins.devdocs") },
     { require("plugins.flash") },
     { require("plugins.obsidian") },
+    { require("plugins.helpview") },
 }
