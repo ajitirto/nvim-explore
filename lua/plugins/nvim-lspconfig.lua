@@ -23,6 +23,7 @@ return {
 
             fuzzy = { implementation = "lua" },
             cmdline = {
+                enabled = true,
                 keymap = {
                     ["<Tab>"] = { "show", "accept" },
                 },

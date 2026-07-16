@@ -14,7 +14,7 @@ return {
                 silent = true,
             },
             signature = {
-                enabled = false,
+                enabled = true,
             },
         },
         views = {
