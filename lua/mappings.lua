@@ -73,3 +73,7 @@ map("t", "<C-S-l>", [[<C-\><C-n>iclear<CR>]], { desc = "Clear terminal screen wi
 map("n", "<C-n>", function()
     Snacks.explorer({ toggle = true })
 end, { desc = "Toggle Snacks Explorer" })
+
+map("n", "<C-h>", "<cmd>checkhealth<CR>", {
+  desc = "Run Neovim health check",
+})
