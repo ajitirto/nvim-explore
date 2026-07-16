@@ -43,6 +43,8 @@ return {
             "typst",
             "regex",
             "astro",
+            "terraform",
+            "hcl",
         },
     }),
 }
