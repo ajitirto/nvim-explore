@@ -77,3 +77,23 @@ end, { desc = "Toggle Snacks Explorer" })
 map("n", "<leader>gh", "<cmd>checkhealth<CR>", {
   desc = "Run Neovim health check",
 })
+
+
+local Snacks = require("snacks")
+
+map("n", "<leader>td", function()
+  Snacks.terminal("lazydocker")
+end, { desc = "LazyDocker" })
+
+map("n", "<leader>tk", function()
+  Snacks.terminal("k9s")
+end, { desc = "K9s" })
+
+map("n", "<leader>tb", function()
+  Snacks.terminal("btop")
+end, { desc = "btop" })
+
+map("n", "<leader>ty", function()
+  Snacks.terminal("yazi")
+end, { desc = "Yazi" })
+
