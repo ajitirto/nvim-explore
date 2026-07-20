@@ -97,3 +97,10 @@ map("n", "<leader>ty", function()
   Snacks.terminal("yazi")
 end, { desc = "Yazi" })
 
+map("n", "<leader>ts", function()
+  Snacks.terminal("lazyssh")
+end, { desc = "Lazyssh" })
+
+map("n", "<leader>tr", function()
+  Snacks.terminal("posting")
+end, { desc = "Rest Api Client" })
