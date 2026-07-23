@@ -104,3 +104,8 @@ end, { desc = "Lazyssh" })
 map("n", "<leader>tr", function()
   Snacks.terminal("posting")
 end, { desc = "Rest Api Client" })
+
+
+map("n", "<leader>te", function()
+  Snacks.terminal("lazyenv")
+end, { desc = "lazyenv" })
