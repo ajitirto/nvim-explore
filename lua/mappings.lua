@@ -105,7 +105,11 @@ map("n", "<leader>tr", function()
   Snacks.terminal("posting")
 end, { desc = "Rest Api Client" })
 
-
 map("n", "<leader>te", function()
   Snacks.terminal("lazyenv")
 end, { desc = "lazyenv" })
+
+
+map("n", "<leader>ti", function()
+  Snacks.terminal("gh dash")
+end, { desc = "gh dash" })
