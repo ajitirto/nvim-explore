@@ -49,6 +49,9 @@ return {
                 "terraform",
                 "hcl",
                 "norg",
+                -- .NET
+                "c_sharp",
+                "xml",
             },
         },
         config = function(_, opts)

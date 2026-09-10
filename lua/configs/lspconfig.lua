@@ -92,6 +92,21 @@ local server_configs = {
     bashls = {
         filetypes = { "sh", "bash", "zsh" },
     },
+    omnisharp = {
+        filetypes = { "cs", "vb" },
+        root_dir = function(bufnr, on_dir)
+            local root = vim.fs.root(bufnr, {
+                "*.sln",
+                "*.csproj",
+                "*.vbproj",
+                ".git",
+            })
+
+            if root then
+                on_dir(root)
+            end
+        end,
+    },
 }
 
 -- Daftar seluruh server yang ingin diaktifkan
@@ -128,19 +143,20 @@ local servers = {
     "markdown_oxide",
     -- Web Server
     "nginx_language_server",
+    "omnisharp",
 }
 
 -- Loop untuk mendaftarkan config (termasuk capabilities nvim-cmp) dan mengaktifkannya
 for _, server in ipairs(servers) do
     -- Ambil config kustom jika ada, kalau tidak ada buat tabel kosong
     local config = server_configs[server] or {}
-    
+
     -- Suntikkan lsp_capabilities ke setiap server (Ganti cara vim.lsp.config("*"))
     config.capabilities = vim.tbl_deep_extend("force", lsp_capabilities, config.capabilities or {})
 
     -- Daftarkan konfigurasi ke Neovim
     vim.lsp.config(server, config)
-    
+
     -- Aktifkan server secara otomatis
     vim.lsp.enable(server)
 end

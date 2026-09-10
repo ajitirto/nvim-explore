@@ -26,6 +26,6 @@ return {
     { require("plugins.vim-surround") },
     { require("plugins.devdocs") },
     { require("plugins.flash") },
-    { require("plugins.obsidian") },
+    -- { require("plugins.obsidian") },
     { require("plugins.helpview") },
 }

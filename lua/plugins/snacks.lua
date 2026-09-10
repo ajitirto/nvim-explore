@@ -42,6 +42,7 @@ return {
                             exclude = {
                                 ".git",
                                 "node_modules",
+                                "vendor",
                                 ".DS_Store",
                                 "__pycache__",
                             },
