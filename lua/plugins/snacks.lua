@@ -34,6 +34,12 @@ return {
                             list = {
                                 keys = {
                                     ["<C-n>"] = "close",
+                                    ["<C-b>"] = {
+                                        function()
+                                            vim.cmd("tcd ..")
+                                        end,
+                                        desc = "tcd parent directory",
+                                    },
                                 },
                             },
                         },
